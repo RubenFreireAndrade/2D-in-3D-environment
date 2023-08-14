@@ -41,44 +41,44 @@ public class PlayerMovement : MonoBehaviour
         //MoveForCharacterController();
     }
 
-    void MoveForCharacterController()
-    {
-        isGrounded = Physics.CheckSphere(transform.position, groundCheckDistance, groundMask);
-        if(isGrounded && velocity.y < 0)
-        {
-            velocity.y = -2f;
-        }
-        float moveZ = Input.GetAxis("Vertical");
-        float moveX = Input.GetAxis("Horizontal");
-        moveDirection = new Vector3(moveX, 0, moveZ);
+    // void MoveForCharacterController()
+    // {
+    //     isGrounded = Physics.CheckSphere(transform.position, groundCheckDistance, groundMask);
+    //     if(isGrounded && velocity.y < 0)
+    //     {
+    //         velocity.y = -2f;
+    //     }
+    //     float moveZ = Input.GetAxis("Vertical");
+    //     float moveX = Input.GetAxis("Horizontal");
+    //     moveDirection = new Vector3(moveX, 0, moveZ);
         
-        if(isGrounded)
-        {
-            if (moveDirection != Vector3.zero /*&& Input.GetKeyDown(KeyCode.LeftShift)*/)
-            {
-                if(moveX > 0)
-                {
-                    spriteRenderer.flipX = false;
-                }
+    //     if(isGrounded)
+    //     {
+    //         if (moveDirection != Vector3.zero /*&& Input.GetKeyDown(KeyCode.LeftShift)*/)
+    //         {
+    //             if(moveX > 0)
+    //             {
+    //                 spriteRenderer.flipX = true;
+    //             }
                 
-                if(moveX < 0)
-                {
-                    spriteRenderer.flipX = true;
-                }
-                Run();
-            }
-            else if (moveDirection == Vector3.zero)
-            {
-                Idle();
-            }
-            moveDirection *= moveSpeed;
-        }
-        // Applying Direction.
-        //charaController.Move(moveDirection * Time.deltaTime);
-        // Applying Gravity.
-        velocity.y += gravity * Time.deltaTime;
-        //charaController.Move(velocity * Time.deltaTime);
-    }
+    //             if(moveX < 0)
+    //             {
+    //                 spriteRenderer.flipX = false;
+    //             }
+    //             Run();
+    //         }
+    //         else if (moveDirection == Vector3.zero)
+    //         {
+    //             Idle();
+    //         }
+    //         moveDirection *= moveSpeed;
+    //     }
+    //     // Applying Direction.
+    //     //charaController.Move(moveDirection * Time.deltaTime);
+    //     // Applying Gravity.
+    //     velocity.y += gravity * Time.deltaTime;
+    //     //charaController.Move(velocity * Time.deltaTime);
+    // }
 
     void MoveForRigidBody()
     {
@@ -106,13 +106,13 @@ public class PlayerMovement : MonoBehaviour
         Idle();
         if (xDirection > 0)
         {
-            spriteRenderer.flipX = true;
+            spriteRenderer.flipX = false;
             Run();
         }
 
         if (xDirection < 0)
         {
-            spriteRenderer.flipX = false;
+            spriteRenderer.flipX = true;
             Run();
         }
 

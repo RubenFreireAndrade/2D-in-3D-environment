@@ -106,13 +106,13 @@ public class PlayerMovement : MonoBehaviour
         Idle();
         if (xDirection > 0)
         {
-            spriteRenderer.flipX = false;
+            spriteRenderer.flipX = true;
             Run();
         }
 
         if (xDirection < 0)
         {
-            spriteRenderer.flipX = true;
+            spriteRenderer.flipX = false;
             Run();
         }
 

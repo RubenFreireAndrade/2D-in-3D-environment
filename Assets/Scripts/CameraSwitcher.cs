@@ -1,37 +1,53 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
-//using Cinemachine;
 
 public static class CameraSwitcher
 {
     // static List<CinemachineVirtualCamera> cameras = new List<CinemachineVirtualCamera>();
-    // public static CinemachineVirtualCamera ActiveCamera = null;
-    // public static bool IsActiveCamera(CinemachineVirtualCamera camera)
-    // {
-    //     return camera == ActiveCamera;
-    // }
 
-    // public static void SwitchCamera(CinemachineVirtualCamera camera)
-    // {
-    //     camera.Priority++;
-    //     ActiveCamera = camera;
-    //     foreach (CinemachineVirtualCamera cam in cameras)
-    //     {
-    //         if (cam != camera && cam.Priority != 0)
-    //         {
-    //             cam.Priority = 0;
-    //         }
-    //     }
-    // }
+    // public static CinemachineVirtualCamera activeCamera = null;
 
-    // public static void Register(CinemachineVirtualCamera camera)
-    // {
-    //     cameras.Add(camera);
-    // }
+    // public static CinemachineVirtualCamera ActiveCamera
 
-    // public static void Unregister(CinemachineVirtualCamera camera)
-    // {
-    //     cameras.Remove(camera);
-    // }
+    static List<Camera> cameras = new List<Camera>();
+
+    public static Camera activeCamera = null;
+
+    public static Camera ActiveCamera
+    {
+        get { return activeCamera; }
+    }
+
+    public static bool IsActiveCamera(Camera camera)
+    {
+        return camera == activeCamera;
+    }
+
+    public static void SwitchCamera(Camera camera)
+    {
+        //camera.Priority = 20;
+        activeCamera = camera;
+
+        // foreach (Camera c in cameras)
+        // {
+        //     if (c != camera && c.Priority != 0)
+        //     {
+        //         c.Priority = 0;
+        //     }
+        // }
+    }
+
+    public static void RegisterCamera(Camera camera)
+    {
+        cameras.Add(camera);
+        Debug.Log("Camera registered" + camera.name);
+    }
+
+    public static void UnregisterCamera(Camera camera)
+    {
+        cameras.Remove(camera);
+        Debug.Log("Camera unregistered" + camera.name);
+    }
 }

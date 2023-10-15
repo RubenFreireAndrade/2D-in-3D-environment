@@ -1029,12 +1029,14 @@ GameObject:
   - component: {fileID: 8790264601376263925}
   - component: {fileID: 8790264601376263924}
   - component: {fileID: 4707423337335028690}
-  - component: {fileID: -775845898581898261}
   - component: {fileID: 8018485591116667662}
-  - component: {fileID: 8657740797719223062}
+  - component: {fileID: 6011191280493327525}
+  - component: {fileID: 6219566664644896561}
+  - component: {fileID: -775845898581898261}
+  - component: {fileID: 4007394238689077505}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1135,30 +1137,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-775845898581898261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8790264601376263923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a8d3bd34ddf3cd4e9878d56b06bda0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canMove: 0
-  speed: 7
-  playerBody: {fileID: 8657740797719223062}
-  runSpeed: 0
-  walkSpeed: 0
-  moveSpeed: 0
-  isGrounded: 0
-  groundCheckDistance: 0
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 0
-  gravity: 0
 --- !u!136 &8018485591116667662
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1168,12 +1146,25 @@ CapsuleCollider:
   m_GameObject: {fileID: 8790264601376263923}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.1
   m_Height: 0.38
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &8657740797719223062
+--- !u!65 &6011191280493327525
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8790264601376263923}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.13277316, y: 0.38, z: 0.06487198}
+  m_Center: {x: -0.0036134482, y: 0, z: -0.00015602112}
+--- !u!54 &6219566664644896561
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1189,6 +1180,47 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &-775845898581898261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8790264601376263923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a8d3bd34ddf3cd4e9878d56b06bda0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canMove: 0
+  speed: 7
+  playerBody: {fileID: 6219566664644896561}
+  runSpeed: 0
+  walkSpeed: 0
+  moveSpeed: 0
+  isGrounded: 0
+  groundCheckDistance: 0
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 0
+  gravity: 0
+--- !u!114 &4007394238689077505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8790264601376263923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 782e35cf640ec25429976159ad09bbf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameras:
+  - {fileID: 8790264602031594074}
+  - {fileID: 8540542149553416698}
+  - {fileID: 2175812915019523126}
+  - {fileID: 7871035272822672149}
 --- !u!1 &8790264602031594407
 GameObject:
   m_ObjectHideFlags: 0

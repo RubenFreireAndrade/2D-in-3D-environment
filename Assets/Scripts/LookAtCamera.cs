@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LookAtCamera : MonoBehaviour
 {
+    Camera cam1;
+    Camera cam2;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +15,13 @@ public class LookAtCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(Camera.main.transform);
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            transform.LookAt(cam1.transform.position);
+        }
+        else if (Input.GetKeyDown(KeyCode.Q))
+        {
+            transform.LookAt(cam2.transform.position);
+        }
     }
 }
